@@ -113,7 +113,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
-    leaflet-js (0.7.0.4)
+    leaflet-rails (0.7.4)
     listen (2.10.0)
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
@@ -276,7 +276,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
-  leaflet-js
+  leaflet-rails
   pg
   pry
   rails (= 4.2.0)
