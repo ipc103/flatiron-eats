@@ -1,0 +1,8 @@
+<h1><%= @restaurant.name %></h1>
+
+<%= @restaurant.address_line1 %></br>
+<%= @restaurant.address_line2 %></br>
+<%= @restaurant.phone %></br>
+<% if @restaurant.menu %>
+	<a href="<%= @restaurant.menu %>">Menu</a>
+<% end %>
