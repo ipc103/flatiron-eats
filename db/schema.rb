@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20150407133211) do
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.integer  "foursquare_id"
+    t.string   "foursquare_id"
     t.string   "name"
-    t.integer  "lat"
-    t.integer  "lng"
+    t.float    "lat"
+    t.float    "lng"
     t.string   "postalcode"
     t.string   "address"
     t.string   "phone"

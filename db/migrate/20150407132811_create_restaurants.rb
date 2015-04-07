@@ -1,10 +1,10 @@
 class CreateRestaurants < ActiveRecord::Migration
   def change
     create_table :restaurants do |t|
-      t.integer :foursquare_id
+      t.string :foursquare_id
       t.string :name
-      t.integer :lat
-      t.integer :lng
+      t.float :lat
+      t.float :lng
       t.string :postalcode
       t.string :address
       t.string :phone
