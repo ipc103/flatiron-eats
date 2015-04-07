@@ -5,8 +5,9 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :name
       t.float :lat
       t.float :lng
+      t.string :address_line1
+      t.string :address_line2
       t.string :postalcode
-      t.string :address
       t.string :phone
       t.string :menu
       t.timestamps null: false

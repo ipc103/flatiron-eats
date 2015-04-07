@@ -30,8 +30,9 @@ class Foursquare
       restaurant.name = restaurant_hash["name"]
       restaurant.lat = restaurant_hash["location"]["lat"]
       restaurant.lng = restaurant_hash["location"]["lng"]
+      restaurant.address_line1 = restaurant_hash["location"]["formattedAddress"][0]
+      restaurant.address_line2 = restaurant_hash["location"]["formattedAddress"][1]
       restaurant.postalcode = restaurant_hash["location"]["postalCode"]
-      restaurant.address = restaurant_hash["location"]["formattedAddress"]
       restaurant.phone = restaurant_hash["contact"]["formattedPhone"]
       restaurant.menu = restaurant_hash["menu"]["url"] if restaurant_hash["menu"]
       restaurant_hash["categories"].each do |category_hash|
