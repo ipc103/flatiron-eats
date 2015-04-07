@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+radius = 50
+
+while radius < 800
+	f = Foursquare.new(radius)
+  f.make_restaurants
+  radius += 50
+end
