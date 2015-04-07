@@ -4,7 +4,7 @@ class CreateMeals < ActiveRecord::Migration
       t.string :name
       t.string :meal_type
       t.datetime :date
-      t.integer :created_by
+      t.integer :host_id
       t.integer :restaurant_id
       t.timestamps null: false
     end
