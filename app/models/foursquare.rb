@@ -25,7 +25,6 @@ class Foursquare
 
   def make_restaurants
     get_restaurants.each do |restaurant_hash|
-      # binding.pry
       restaurant = Restaurant.find_or_create_by(foursquare_id: restaurant_hash["id"])
       restaurant.name = restaurant_hash["name"]
       restaurant.lat = restaurant_hash["location"]["lat"]
