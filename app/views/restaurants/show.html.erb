@@ -6,3 +6,7 @@
 <% if @restaurant.menu %>
 	<a href="<%= @restaurant.menu %>">Menu</a>
 <% end %>
+
+<%= form_tag(new_meal_path, method: :get) %>
+<%= hidden_field_tag 'restaurant_id', @restaurant.id %>
+<%= submit_tag "Make a New Meal" %>

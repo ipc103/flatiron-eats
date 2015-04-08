@@ -1,3 +1,9 @@
 Meals Index Page
 
 <div id="map-canvas"></div>
+<ul>
+<% @meals.each do |meal| %>
+<li><%= "#{meal.name} - #{meal.restaurant.name} - #{meal.host.firstname} #{meal.host.lastname}"%></li>
+
+<% end %>
+</ul>
