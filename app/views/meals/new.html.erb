@@ -6,7 +6,7 @@
 <% else %>
 <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true %>
 <% end %>
-<%= f.collection_select :host_id, User.order(:firstname),:id, :email, include_blank: true %>
+<%= f.collection_select :host_id, User.order(:email),:id, :email, include_blank: true %>
 <%= f.datetime_select :date, value: Time.now%>
 <%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"] %>
 <%= f.submit %>
