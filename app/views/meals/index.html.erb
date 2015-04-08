@@ -3,7 +3,10 @@ Meals Index Page
 <div id="map-canvas"></div>
 <ul>
 <% @meals.each do |meal| %>
-<li><%= "#{meal.name} - #{meal.restaurant.name} - #{meal.host.firstname} #{meal.host.lastname}"%></li>
+<li><%= "#{meal.name} at #{meal.restaurant.name} - hosted by #{meal.host.name}"%></li>
+<% unless meal.host_id == current_user.id %>
+<p>Sign Up To Join Me!!</p>
+<% end %>
 
 <% end %>
 </ul>
