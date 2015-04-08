@@ -4,8 +4,14 @@ Meals Index Page
 <ul>
 <% @meals.each do |meal| %>
 <li><%= "#{meal.name} at #{meal.restaurant.name} - hosted by #{meal.host.name}"%></li>
-<% unless meal.host_id == current_user.id %>
-<p>Sign Up To Join Me!!</p>
+<% if meal.host_id == current_user.id %>
+<p>You are hosting this meal!</p>
+<% elsif meal.users.include?(current_user) %>
+<p>You are already attending this meal!</p>
+<% else %>
+<%= form_tag(create_user_meal_path, method: :post) %>
+<%= hidden_field_tag 'meal_id', meal.id %>
+<%= submit_tag "Join This Meal!" %>
 <% end %>
 
 <% end %>
