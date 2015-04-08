@@ -11,6 +11,14 @@
     </script>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
+ <% if user_signed_in? %>
+    <%= current_user.name unless current_user.name.nil? %>
+    <img id="profile" src="<%=current_user.image%>">
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to "Sign In", new_user_session_path %>
+    <%= link_to 'Sign in with Github', user_omniauth_authorize_path(:github) %>
+  <% end %>
 
 <%= yield %>
 
