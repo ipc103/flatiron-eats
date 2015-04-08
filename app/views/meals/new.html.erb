@@ -1,0 +1,13 @@
+<%= form_for @meal do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<% if @restaurant %>
+<%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true, selected: @restaurant.id%>
+<% else %>
+<%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true %>
+<% end %>
+<%= f.collection_select :host_id, User.order(:firstname),:id, :email, include_blank: true %>
+<%= f.datetime_select :date, value: Time.now%>
+<%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"] %>
+<%= f.submit %>
+<% end %>

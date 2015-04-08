@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 20150407133211) do
     t.string   "name"
     t.float    "lat"
     t.float    "lng"
+    t.string   "address_line1"
+    t.string   "address_line2"
     t.string   "postalcode"
-    t.string   "address"
     t.string   "phone"
     t.string   "menu"
     t.datetime "created_at",    null: false
