@@ -22,7 +22,8 @@ class MealsController < ApplicationController
   end
 
   def new_user_meal
-    binding.pry
+    UserMeal.create(meal_id: params[:meal_id], user_id: current_user.id)
+    redirect_to root_path
   end
 
   private
