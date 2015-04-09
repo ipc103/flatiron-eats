@@ -22,8 +22,18 @@ class MealsController < ApplicationController
   end
 
   def new_user_meal
-    UserMeal.create(meal_id: params[:meal_id], user_id: current_user.id)
-    redirect_to root_path
+    UserMeal.create(user_id: current_user.id, meal_id: params[:meal_id])
+    redirect_to meals_path
+  end
+
+  def destroy_user_meal
+    UserMeal.where(user_id: current_user.id, meal_id: params[:meal_id]).last.destroy
+    redirect_to meals_path
+  end
+
+  def destroy
+    Meal.find(params[:id]).destroy
+    redirect_to meals_path
   end
 
   private
