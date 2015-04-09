@@ -21,18 +21,18 @@
         <% if meal.host_id == current_user.id %>
           <p>You are hosting this meal!</p>
             <%= form_tag("/meals/#{meal.id}", method: :delete) do %>
-              <%= submit_tag "cancel this meal!" %>
+              <%= submit_tag "cancel this meal!", class: "btn btn-info"%>
             <% end %>
         <% elsif meal.users.include?(current_user) %>
           <p>You are already attending this meal!</p>
           <%= form_tag(delete_user_meal_path(meal), method: :delete)  do %>
             <%= hidden_field_tag 'meal_id', meal.id %>
-            <%= submit_tag "remove me from this meal!" %>
+            <%= submit_tag "remove me from this meal!", class: "btn btn-danger" %>
           <% end %>
         <% else %>
           <%= form_tag(create_user_meal_path, method: :post) do %>
             <%= hidden_field_tag 'meal_id', meal.id %>
-            <%= submit_tag "Join This Meal!" %>
+            <%= submit_tag "Join This Meal!", class: "btn btn-info"%>
           <% end %>
         <% end %>
 
