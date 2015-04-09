@@ -578,6 +578,11 @@ header{
 	line-height: 60px;
 	padding: 0 20px;
 	vertical-align: middle;
+	position: fixed;
+	z-index: 50;
+	width: 100%;
+	margin: 0px auto;
+	top: 0px;
 	.logo{
 		width: 190px;
 		float: left;
