@@ -13,7 +13,14 @@
 </li>
 <% if meal.host_id == current_user.id %>
   <p>You are hosting this meal!</p>
+  <%= form_tag("/meals/#{meal.id}", method: :delete) %>
+    <%= submit_tag "cancel this meal!" %>
+
 <% elsif meal.users.include?(current_user) %>
+<%= form_tag(delete_user_meal_path(meal), method: :delete) %>
+    <%= hidden_field_tag 'meal_id', meal.id %>
+    <%= submit_tag "remove me from this meal!" %>
+
   <p>You are already attending this meal!</p>
 <% else %>
   <%= form_tag(create_user_meal_path, method: :post) %>

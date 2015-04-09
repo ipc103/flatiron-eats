@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :restaurants, :users
 
   post '/user_meals' => 'meals#new_user_meal', as: :create_user_meal
+  delete '/user_meals/:id' => 'meals#destroy_user_meal', as: :delete_user_meal
 
   # Example resource route with options:
   #   resources :products do
