@@ -5,9 +5,4 @@ class Meal < ActiveRecord::Base
   belongs_to :restaurant
   has_many :reviews
   validates :meal_type, :date, :name,  presence: true
-
-
-  def host?(current_user)
-    !!meal.host_id == current_user.id
-  end
 end

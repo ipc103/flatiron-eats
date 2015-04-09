@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resource :reviews
   end
   
-  resources :restaurants
+  resources :restaurants, :users
 
   post '/user_meals' => 'meals#new_user_meal', as: :create_user_meal
 
