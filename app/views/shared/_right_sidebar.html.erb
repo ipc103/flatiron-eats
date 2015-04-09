@@ -17,7 +17,7 @@
             </ul>
           <% end %>
 
-        <!-- buttons to destroy -->
+        <!-- buttons  -->
         <% if meal.host_id == current_user.id %>
           <p>You are hosting this meal!</p>
             <%= form_tag("/meals/#{meal.id}", method: :delete) do %>
@@ -32,7 +32,7 @@
         <% else %>
           <%= form_tag(create_user_meal_path, method: :post) do %>
             <%= hidden_field_tag 'meal_id', meal.id %>
-            <%= submit_tag "Join This Meal!", class: "btn btn-info"%>
+            <%= submit_tag "Join This Meal!", class: "btn btn-danger"%>
           <% end %>
         <% end %>
 
