@@ -4,6 +4,11 @@ class MealsController < ApplicationController
     @meals = Meal.all
   end
 
+  def show
+    @meal = Meal.find(params[:id])
+    @users = @meal.users
+  end
+
   def new
     if params[:restaurant_id]
       @restaurant = Restaurant.find(params[:restaurant_id])

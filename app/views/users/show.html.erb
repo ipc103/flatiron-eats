@@ -1,1 +1,24 @@
-User Show Page
+<h2><%= @user.name %></h2>
+<h3>Attending:</h3>
+<ul>
+<% @meals.each do |meal| %>
+  <li><%= link_to meal.name, meal %></li>
+  <% unless meal.users.include?(current_user) %>
+    <%= form_tag(create_user_meal_path, method: :post) %>
+    <%= hidden_field_tag 'meal_id', meal.id %>
+    <%= submit_tag "Join This Meal!" %>
+  <% end %>
+<% end %>
+</ul>
+
+<h3>Hosting:</h3>
+<ul>
+<% @events.each do |event| %>
+  <li><%= link_to event.name, event %></li>
+  <% unless event.users.include?(current_user) || event.host == current_user%>
+    <%= form_tag(create_user_meal_path, method: :post) %>
+    <%= hidden_field_tag 'meal_id', event.id %>
+    <%= submit_tag "Join This Meal!" %>
+  <% end %>
+<% end %>
+</ul>

@@ -1,1 +1,9 @@
-Meals Show Page
+<h2><%= @meal.name %></h2>
+<h4><%= @meal.date %></h4>
+<h4><%= link_to @meal.restaurant.name, @meal.restaurant %></h4>
+<h4>Attending:</h4>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.name, user %></li>
+  <% end %>
+</ul>
