@@ -16,6 +16,9 @@ class MealsController < ApplicationController
     redirect_to meals_path
   end
 
+  def new_user_meal
+    binding.pry
+  end
 
   private
 

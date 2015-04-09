@@ -17,12 +17,12 @@ while radius < 800
   radius += 50
 end
 
-user_info = [
-  {firstname: "Ian", lastname: "Candy", email: "ian@ian.com" },
-  {firstname: "Deniz", lastname: "Unat", email: "deniz@unat.com" }, 
-  {firstname: "Lara", lastname: "Skholoff", email: "lara@lara.com" }, 
-  {firstname: "Jeremy", lastname: "Sklarsky", email: "jeremyrules@ian.com" }, 
-  {firstname: "Rachel", lastname: "Nackman", email: "nackman@nackman.com" } 
-]
+# user_info = [
+#   {firstname: "Ian", lastname: "Candy", email: "ian@ian.com" },
+#   {firstname: "Deniz", lastname: "Unat", email: "deniz@unat.com" }, 
+#   {firstname: "Lara", lastname: "Skholoff", email: "lara@lara.com" }, 
+#   {firstname: "Jeremy", lastname: "Sklarsky", email: "jeremyrules@ian.com" }, 
+#   {firstname: "Rachel", lastname: "Nackman", email: "nackman@nackman.com" } 
+# ]
 
-users = User.create(user_info)
+# users = User.create(user_info)
