@@ -1,31 +1,62 @@
-<div id="map-canvas"></div>
-<ul>
-<% @meals.each do |meal| %>
-<li><%= "#{meal.name} at #{meal.restaurant.name} - hosted by #{meal.host.name}"%>
-<% if !meal.users.empty? %>
-  <p>Attendees:</p>
-  <ul>
-  <%meal.users.each do |user| %>
-    <li><%= user.name %></li>
-  <% end %>
-  </ul>
-<% end %>
-</li>
-<% if meal.host_id == current_user.id %>
-  <p>You are hosting this meal!</p>
-  <%= form_tag("/meals/#{meal.id}", method: :delete) %>
-    <%= submit_tag "cancel this meal!" %>
+<div class="main-container">
+  <div class="container-fluid">
+    <div class="spacer">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="blog">
+            <div class="blog-header">
+              <h5 class="blog-title">Upcoming Meals Around Flatiron</h5>
+            </div>
+            <div class="blog-body">
+              <div id="map-canvas"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% elsif meal.users.include?(current_user) %>
-<%= form_tag(delete_user_meal_path(meal), method: :delete) %>
-    <%= hidden_field_tag 'meal_id', meal.id %>
-    <%= submit_tag "remove me from this meal!" %>
+<div class="right-sidebar">
+                <div class="add-on clearfix">
+                  <div class="add-on-wrapper">
+                    <h5>
+                      Upcoming Meals Around Flatrion
+                    </h5>
+                    <ul class="articles">
+                      <% @meals.each do |meal| %>
+                      <li><%= "#{meal.name} at #{meal.restaurant.name} - hosted by #{meal.host.name}"%>
+                        <% if !meal.users.empty? %>
+                          Attendees:
+                          <ul>
+                            <%meal.users.each do |user| %>
+                              <li><%= user.name %></li>
+                            <% end %>
+                          </ul>
+                        <% end %>
+                      <!-- buttons to destroy -->
 
-  <p>You are already attending this meal!</p>
-<% else %>
-  <%= form_tag(create_user_meal_path, method: :post) %>
-    <%= hidden_field_tag 'meal_id', meal.id %>
-    <%= submit_tag "Join This Meal!" %>
-  <% end %>
-<% end %>
-</ul>
+                      <% if meal.host_id == current_user.id %>
+                        <p>You are hosting this meal!</p>
+                          <%= form_tag("/meals/#{meal.id}", method: :delete) do %>
+                            <%= submit_tag "cancel this meal!" %>
+                          <% end %>
+                      <% elsif meal.users.include?(current_user) %>
+                        <p>You are already attending this meal!</p>
+                          <%= form_tag(delete_user_meal_path(meal.id), method: :delete)  do %>
+                            <%= hidden_field_tag 'meal_id', meal.id %>
+                            <%= submit_tag "remove me from this meal!" %>
+                          <% end %>
+                      <% else %>
+                        <%= form_tag(create_user_meal_path, method: :post) do %>
+                          <%= hidden_field_tag 'meal_id', meal.id %>
+                          <%= submit_tag "Join This Meal!" %>
+                        <% end %>
+                      <% end %>
+                      </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
