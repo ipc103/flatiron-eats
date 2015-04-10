@@ -3,6 +3,7 @@ function insertRestaurantPins(map, data, infowindow){
   for (var i = data["meals"].length - 1; i >= 0; i--) {
     var pins, html, pinLatLng, pinMarkers, button;
     pins = data["meals"][i];
+
     if (pins["restaurant"]["attending"]) {
       var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Remove this Meal!" class="btn btn-danger"></div>';
     } else {
@@ -28,30 +29,3 @@ function insertRestaurantPins(map, data, infowindow){
 }
 
 
-$(function(){
-  $("#map-canvas").on("click", "input.btn", (function(){
-    var mealID = $(this).parent().attr("data-meal-id")
-    $.ajax({
-      url: "/user_meals",
-      type: "POST",
-      data: {"meal_id": mealID},
-      dataType: "json",
-      success: function(response){
-        alert("successful!");
-      }
-    })
-  }))
-})
-
-
-// $.ajax({
-//        url: url,
-//        data: '{"alias": "Udetemperatur"}',
-//        type: "POST",
-//        contentType: "application/json; charset=utf-8",
-//        dataType: "text",  // not "json" we'll parse
-//        success:
-//                function(res) {
-//                    alert('Received response: ' + res);
-//                    }
-//    });
