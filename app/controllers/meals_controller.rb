@@ -4,8 +4,12 @@ class MealsController < ApplicationController
     @meals = Meal.all
     respond_to do |f|
       f.json {
-        render json: {meals: @meals.map(&:attributes), restaurants: Restaurant.all.map(&:attributes)}
+        render json: 
+          {meals: @meals.map do |meal| 
+          {id: meal.id, name: meal.name, restaurant: {name: meal.restaurant.name, lat: meal.restaurant.lat, lng: meal.restaurant.lng, address_line1: meal.restaurant.address_line1, phone: meal.restaurant.phone, menu: meal.restaurant.menu, attending: meal.going?(current_user)}}
+        end
       }
+    }
       f.html
     end
   end

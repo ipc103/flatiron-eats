@@ -5,4 +5,9 @@ class Meal < ActiveRecord::Base
   belongs_to :restaurant
   has_many :reviews
   validates :meal_type, :date, :name,  presence: true
+
+
+  def going?(user)
+    self.users.include?(user)
+  end
 end
