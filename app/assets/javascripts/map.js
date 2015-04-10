@@ -1,14 +1,17 @@
 $(".meals.index").ready (function(){
-  insertMap(40.705329, -74.013970)
+  $.getJSON('/meals', function(data){
+    insertMap(40.705329, -74.013970, data);
+  })
+  
 })
 
 
-function insertMap(lat, lng){
+function insertMap(lat, lng, data){
   var myLatlng = new google.maps.LatLng(40.705329, -74.013970);
   var mapCanvas = document.getElementById('map-canvas');
   var mapOptions = {
     center: new google.maps.LatLng(lat, lng),
-    zoom: 15,
+    zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
   var map = new google.maps.Map(mapCanvas, mapOptions);
@@ -19,4 +22,6 @@ function insertMap(lat, lng){
       icon: img,
       title: 'Hello World!'
   });
+  insertRestaurantPins(map, data);
 }
+

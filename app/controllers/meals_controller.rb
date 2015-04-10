@@ -2,6 +2,12 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
+    respond_to do |f|
+      f.json {
+        render json: {meals: @meals.map(&:attributes), restaurants: Restaurant.all.map(&:attributes)}
+      }
+      f.html
+    end
   end
 
   def show
