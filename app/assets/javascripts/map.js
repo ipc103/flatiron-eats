@@ -1,8 +1,13 @@
 $(".meals.index").ready (function(){
   $.getJSON('/meals', function(data){
     insertMap(40.705329, -74.013970, data);
-  })
-  
+  }) 
+})
+
+$(".restaurants.index").ready (function(){
+  $.getJSON('/restaurants', function(data){
+    insertMap(40.705329, -74.013970, data);
+  }) 
 })
 
 
@@ -22,6 +27,6 @@ function insertMap(lat, lng, data){
       icon: img,
       title: 'Hello World!'
   });
-  insertRestaurantPins(map, data);
+  insertMealsPins(map, data);
 }
 

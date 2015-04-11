@@ -1,4 +1,4 @@
-function insertRestaurantPins(map, data, infowindow){
+function insertMealsPins(map, data, infowindow){
   var infowindows = new Array (); // creates an array to hold the info windows for each restaurant
   for (var i = data["meals"].length - 1; i >= 0; i--) {
     var pins, html, pinLatLng, pinMarkers, button;

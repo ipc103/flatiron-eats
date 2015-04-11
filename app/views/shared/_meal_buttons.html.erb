@@ -13,3 +13,9 @@
     <%= submit_tag "Join This Meal!", class: "btn btn-info"%>
   <% end %>
 <% end %>
+
+<form action="/user_meals" accept-charset="UTF-8" method="post">
+
+    <input type="hidden" name="meal_id" id="meal_id" value="10">
+    <input type="submit" name="commit" value="Join This Meal!" class="btn btn-info">
+</form>
