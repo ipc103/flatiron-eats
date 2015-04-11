@@ -46,17 +46,40 @@ class MealsController < ApplicationController
 
   def destroy
     Meal.find(params[:id]).destroy
-    redirect_to meals_path
+    respond_to do |f|
+      f.html{
+        redirect_to meals_path
+      }
+      f.js{
+        render 'restaurants/right_sidebar'
+      }
+    end
   end
 
   def new_user_meal
+    @meal = Meal.find(params[:meal_id])
     UserMeal.create(user_id: current_user.id, meal_id: params[:meal_id])
-    redirect_to meals_path
+    respond_to do |f|
+      f.html{
+        redirect_to meals_path
+      }
+      f.js{
+        render 'restaurants/right_sidebar'
+      }
+    end
+    
   end
 
   def destroy_user_meal
     UserMeal.where(user_id: current_user.id, meal_id: params[:meal_id]).last.destroy
-    redirect_to meals_path
+    respond_to do |f|
+      f.html{
+        redirect_to meals_path
+      }
+      f.js{
+        render 'restaurants/right_sidebar'
+      }
+    end
   end
 
 

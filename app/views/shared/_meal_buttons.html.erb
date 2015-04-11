@@ -1,14 +1,14 @@
 <% if meal.host_id == current_user.id %>
-  <%= form_tag("/meals/#{meal.id}", method: :delete) do %>
+  <%= form_tag("/meals/#{meal.id}", method: :delete, remote: true) do %>
     <%= submit_tag "cancel this meal!", class: "btn btn-danger"%>
   <% end %>
 <% elsif meal.users.include?(current_user) %>
-  <%= form_tag(delete_user_meal_path(meal), method: :delete)  do %>
+  <%= form_tag(delete_user_meal_path(meal), method: :delete, remote: true)  do %>
     <%= hidden_field_tag 'meal_id', meal.id %>
     <%= submit_tag "remove me from this meal!", class: "btn btn-danger" %>
   <% end %>
 <% else %>
-  <%= form_tag(create_user_meal_path, method: :post) do %>
+  <%= form_tag(create_user_meal_path, method: :post, remote: true) do %>
     <%= hidden_field_tag 'meal_id', meal.id %>
     <%= submit_tag "Join This Meal!", class: "btn btn-info"%>
   <% end %>
