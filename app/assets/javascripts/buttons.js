@@ -1,3 +1,4 @@
+//JOIN A MEAL BUTTON
 $(function(){
   $("#map-canvas").on("click", "input.btn-info.join", (function(){
     var mealID = $(this).parent().attr("data-meal-id")
@@ -18,6 +19,7 @@ $(function(){
   }))
 })
 
+// CANCEL MEAL BUTTON
 $(function(){
   $("#map-canvas").on("click", "input.btn-danger.cancel", (function(){
     var mealID = $(this).parent().attr("data-meal-id")
@@ -30,6 +32,7 @@ $(function(){
       dataType: "json",
       complete: function(response){
         alert("Successfully Cancelled Meal!")
+        debugger;
         $.getJSON('/meals', function(data){
           insertMealsMap(40.705329, -74.013970, data);
         }) 
@@ -38,6 +41,7 @@ $(function(){
   }))
 })
 
+// REMOVE MEAL BUTTON
 $(function(){
   $("#map-canvas").on("click", "input.btn-danger.remove", (function(){
     var $button = $(this)
