@@ -12,7 +12,14 @@ function insertMealsPins(map, data, infowindow){
       var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Join This Meal!" class="btn btn-info join"></div>';
     };
     
-    html = '<h4>'+pins['restaurant']['name']+'</h4>'+'<p>'+pins['restaurant']['address_line1']+'</p>'+ '<p>'+ pins['restaurant']['phone']+'</p>' + '<a href="' + pins['restaurant']['menu']+ '">Menu</a>' + button;
+    html = '<h4>'+pins['restaurant']['name']+'</h4>' +'<p>'+pins['restaurant']['address_line1']+'</p>'
+    if ( pins['restaurant']['phone'] ) {
+      html += '<p>'+ pins['restaurant']['phone']+'</p>';
+    }
+    if ( pins['restaurant']['menu'] ) {
+      html += '<a href="' + pins['restaurant']['menu']+ '">Menu</a>';
+    }
+    html += button;;
     pinLatLng = new google.maps.LatLng(parseFloat(pins['restaurant']['lat']), parseFloat(pins['restaurant']['lng']));
     pinMarkers = new google.maps.Marker({position: pinLatLng, map: map, animation: google.maps.Animation.Drop});
     infowindows[i] = new google.maps.InfoWindow();
