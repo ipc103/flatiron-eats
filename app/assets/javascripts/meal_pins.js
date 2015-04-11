@@ -5,9 +5,11 @@ function insertMealsPins(map, data, infowindow){
     pins = data["meals"][i];
 
     if (pins["restaurant"]["attending"]) {
-      var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Remove this Meal!" class="btn btn-danger"></div>';
+      var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Remove this Meal!" class="btn btn-danger remove"></div>';
+    } else if ( pins["restaurant"]["hosting"] ) {
+      var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Cancel This Meal!" class="btn btn-danger cancel"></div>';
     } else {
-      var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Join This Meal!" class="btn btn-info"></div>';
+      var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Join This Meal!" class="btn btn-info join"></div>';
     };
     
     html = '<h4>'+pins['restaurant']['name']+'</h4>'+'<p>'+pins['restaurant']['address_line1']+'</p>'+ '<p>'+ pins['restaurant']['phone']+'</p>' + '<a href="' + pins['restaurant']['menu']+ '">Menu</a>' + button;

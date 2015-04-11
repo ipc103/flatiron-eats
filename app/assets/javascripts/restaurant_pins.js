@@ -7,7 +7,6 @@ function insertRestaurantPins(map, data, infowindow){
     pinLatLng = new google.maps.LatLng(parseFloat(pins['lat']), parseFloat(pins['lng']));
     pinMarkers = new google.maps.Marker({position: pinLatLng, map: map, animation: google.maps.Animation.Drop});
     infowindows[i] = new google.maps.InfoWindow();
-    // debugger;
     infowindows[i].setContent(html);
     var prevOpenWindow = false;
     google.maps.event.addListener(pinMarkers, "click", (function(pinMarkers, i) {

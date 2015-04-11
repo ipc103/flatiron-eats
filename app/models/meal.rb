@@ -10,4 +10,8 @@ class Meal < ActiveRecord::Base
   def going?(user)
     self.users.include?(user)
   end
+
+  def hosting?(user)
+    self.host == user
+  end
 end

@@ -6,7 +6,20 @@ class MealsController < ApplicationController
       f.json {
         render json: 
           {meals: @meals.map do |meal| 
-          {id: meal.id, name: meal.name, restaurant: {name: meal.restaurant.name, lat: meal.restaurant.lat, lng: meal.restaurant.lng, address_line1: meal.restaurant.address_line1, phone: meal.restaurant.phone, menu: meal.restaurant.menu, attending: meal.going?(current_user)}}
+          {
+            id: meal.id, 
+            name: meal.name, 
+            restaurant: {
+              name: meal.restaurant.name, 
+              lat: meal.restaurant.lat, 
+              lng: meal.restaurant.lng, 
+              address_line1: meal.restaurant.address_line1, 
+              phone: meal.restaurant.phone, 
+              menu: meal.restaurant.menu, 
+              attending: meal.going?(current_user),
+              hosting: meal.hosting?(current_user)
+              }
+            }
         end
       }
     }
@@ -31,6 +44,11 @@ class MealsController < ApplicationController
     redirect_to meals_path
   end
 
+  def destroy
+    Meal.find(params[:id]).destroy
+    redirect_to meals_path
+  end
+
   def new_user_meal
     UserMeal.create(user_id: current_user.id, meal_id: params[:meal_id])
     redirect_to meals_path
@@ -41,10 +59,6 @@ class MealsController < ApplicationController
     redirect_to meals_path
   end
 
-  def destroy
-    Meal.find(params[:id]).destroy
-    redirect_to meals_path
-  end
 
   private
 
