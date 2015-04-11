@@ -14,6 +14,7 @@ $(function(){
         this.removeClass( "btn-info join" );
         this.addClass( "btn-danger remove" );
         this.attr("value", "Remove this Meal!");
+        loadRightSidebar();
       }
     })
   }))
@@ -32,10 +33,10 @@ $(function(){
       dataType: "json",
       complete: function(response){
         alert("Successfully Cancelled Meal!")
-        debugger;
         $.getJSON('/meals', function(data){
           insertMealsMap(40.705329, -74.013970, data);
         }) 
+        loadRightSidebar();
       }
     })
   }))
@@ -56,6 +57,7 @@ $(function(){
         this.removeClass( "btn-danger remove" );
         this.addClass( "btn-info join" );
         this.attr("value", "Join This Meal!");
+        loadRightSidebar();
       }
     })
   }))
