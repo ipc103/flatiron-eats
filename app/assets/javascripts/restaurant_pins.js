@@ -11,6 +11,7 @@ function insertRestaurantPins(map, data, infowindow){
     if ( pins['menu']) {
       html += '<a href="' + pins['menu']+ '">Menu</a>';
     }
+    
     html += '<p><a href="/meals/new?restaurant_id=' + pins['id'] + '">Create a New Meal</a></p>';
     pinLatLng = new google.maps.LatLng(parseFloat(pins['lat']), parseFloat(pins['lng']));
     pinMarkers = new google.maps.Marker({position: pinLatLng, map: map, animation: google.maps.Animation.Drop});
@@ -22,10 +23,10 @@ function insertRestaurantPins(map, data, infowindow){
             if (prevOpenWindow) {
               prevOpenWindow.close();
             }
-            prevOpenWindow = infowindows[i]
+            prevOpenWindow = infowindows[i];
             infowindows[i].open(map, pinMarkers);
-        }
+        };
       })(pinMarkers, i));
-  };
+  }
   
 }

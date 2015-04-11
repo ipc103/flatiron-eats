@@ -1,14 +1,14 @@
 $(".meals.index").ready (function(){
   $.getJSON('/meals', function(data){
     insertMealsMap(40.705329, -74.013970, data);
-  }) 
-})
+  });
+});
 
 $(".restaurants.index").ready (function(){
   $.getJSON('/restaurants', function(data){
     insertRestaurantsMap(40.705329, -74.013970, data);
-  }) 
-})
+  }); 
+});
 
 
 function insertRestaurantsMap(lat, lng, data){
@@ -18,9 +18,9 @@ function insertRestaurantsMap(lat, lng, data){
     center: new google.maps.LatLng(lat, lng),
     zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
+  };
   var map = new google.maps.Map(mapCanvas, mapOptions);
-  var img = "assets/logo.png"
+  var img = "assets/logo.png";
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
@@ -37,9 +37,9 @@ function insertMealsMap(lat, lng, data){
     center: new google.maps.LatLng(lat, lng),
     zoom: 16,
     mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
+  };
   var map = new google.maps.Map(mapCanvas, mapOptions);
-  var img = "assets/logo.png"
+  var img = "assets/logo.png";
   var marker = new google.maps.Marker({
       position: myLatlng,
       map: map,

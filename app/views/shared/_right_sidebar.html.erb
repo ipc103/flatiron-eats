@@ -2,27 +2,27 @@
   <div class="add-on clearfix">
     <div class="add-on-wrapper">
       <% @meals.each do |meal| %>
-      <h5>
-        <%= "#{meal.name} at #{meal.restaurant.name}"%>
-      </h5>
-      <ul class="articles">
-        <li>hosted by <%= meal.host.name%></li>
-        <li>
-          <% if !meal.users.empty? %>
-            Attendees:
-            <ul>
-              <%meal.users.each do |user| %>
-                <li><%= user.name %></li>
-              <% end %>
-            </ul>
-          <% end %>
+        <h5>
+          <%= "#{meal.name} at #{meal.restaurant.name}"%>
+        </h5>
+        <ul class="articles">
+          <li>hosted by <%= meal.host.name%></li>
+          <li>
+            <% if !meal.users.empty? %>
+              Attendees:
+              <ul>
+                <%meal.users.each do |user| %>
+                  <li><%= user.name %></li>
+                <% end %>
+              </ul>
+            <% end %>
 
-        <!-- buttons  -->
-        <%= render partial: "shared/meal_buttons", locals: {meal: meal} %>
+          <!-- buttons  -->
+          <%= render partial: "shared/meal_buttons", locals: {meal: meal} %>
 
-        </li>
-        <% end %>
-      </ul>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>

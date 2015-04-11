@@ -42,9 +42,4 @@ class Foursquare
       restaurant.save
     end
   end
-
-  
-
-  # {"id"=>"53e929d5498e60742357fb87", "name"=>"Dig Inn Seasonal Market", "contact"=>{"phone"=>"2125457867", "formattedPhone"=>"(212) 545-7867", "twitter"=>"diginn", "facebook"=>"158613407523269", "facebookUsername"=>"diginnmarket", "facebookName"=>"Dig Inn Seasonal Market"}, "location"=>{"address"=>"80 Broad St", "crossStreet"=>"Stone & Marketfield", "lat"=>40.70435755218158, "lng"=>-74.01154445303536, "distance"=>231, "postalCode"=>"10004", "cc"=>"US", "city"=>"New York", "state"=>"NY", "country"=>"United States", "formattedAddress"=>["80 Broad St (Stone & Marketfield)", "New York, NY 10004", "United States"]}, "categories"=>[{"id"=>"4bf58dd8d48988d14e941735", "name"=>"American Restaurant", "pluralName"=>"American Restaurants", "shortName"=>"American", "icon"=>{"prefix"=>"https://ss3.4sqi.net/img/categories_v2/food/default_", "suffix"=>".png"}, "primary"=>true}], "verified"=>true, "stats"=>{"checkinsCount"=>746, "usersCount"=>307, "tipCount"=>5}, "url"=>"http://diginn.com", "specials"=>{"count"=>0, "items"=>[]}, "hereNow"=>{"count"=>2, "summary"=>"2 people are checked in here", "groups"=>[{"type"=>"others", "name"=>"Other people here", "count"=>2, "items"=>[]}]}, "referralId"=>"v-1428431101"}
-
 end

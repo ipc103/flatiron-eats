@@ -4,8 +4,7 @@ class MealsController < ApplicationController
     @meals = Meal.all
     respond_to do |f|
       f.json {
-        render json: 
-          {meals: @meals.map do |meal| 
+        render json: {meals: @meals.map do |meal| 
           {
             id: meal.id, 
             name: meal.name, 
@@ -18,8 +17,8 @@ class MealsController < ApplicationController
               menu: meal.restaurant.menu, 
               attending: meal.going?(current_user),
               hosting: meal.hosting?(current_user)
-              }
             }
+          }
         end
       }
     }
@@ -67,7 +66,6 @@ class MealsController < ApplicationController
         render 'restaurants/right_sidebar'
       }
     end
-    
   end
 
   def destroy_user_meal
@@ -84,7 +82,6 @@ class MealsController < ApplicationController
 
 
   private
-
   def meal_params
     params.require(:meal).permit(:name, :restaurant_id, :host_id, :email, :date, :meal_type)
   end

@@ -1,8 +1,8 @@
 //JOIN A MEAL BUTTON
 $(function(){
   $("#map-canvas").on("click", "input.btn-info.join", (function(){
-    var mealID = $(this).parent().attr("data-meal-id")
-    var $button = $(this)
+    var mealID = $(this).parent().attr("data-meal-id");
+    var $button = $(this);
     $.ajax({
       url: "/user_meals",
       type: "POST",
@@ -16,15 +16,15 @@ $(function(){
         this.attr("value", "Remove this Meal!");
         loadRightSidebar();
       }
-    })
-  }))
-})
+    });
+  }));
+});
 
 // CANCEL MEAL BUTTON
 $(function(){
   $("#map-canvas").on("click", "input.btn-danger.cancel", (function(){
-    var mealID = $(this).parent().attr("data-meal-id")
-    var $button = $(this)
+    var mealID = $(this).parent().attr("data-meal-id");
+    var $button = $(this);
     $.ajax({
       url: "/meals/" + mealID,
       type: "DELETE",
@@ -32,21 +32,21 @@ $(function(){
       context: $button,
       dataType: "json",
       complete: function(response){
-        alert("Successfully Cancelled Meal!")
+        alert("Successfully Cancelled Meal!");
         $.getJSON('/meals', function(data){
           insertMealsMap(40.705329, -74.013970, data);
-        }) 
+        });
         loadRightSidebar();
       }
-    })
-  }))
-})
+    });
+  }));
+});
 
 // REMOVE MEAL BUTTON
 $(function(){
   $("#map-canvas").on("click", "input.btn-danger.remove", (function(){
-    var $button = $(this)
-    var mealID = $(this).parent().attr("data-meal-id")
+    var $button = $(this);
+    var mealID = $(this).parent().attr("data-meal-id");
     $.ajax({
       url: "/user_meals/" + mealID,
       type: "DELETE",
@@ -59,6 +59,6 @@ $(function(){
         this.attr("value", "Join This Meal!");
         loadRightSidebar();
       }
-    })
-  }))
-})
+    });
+  }));
+});
