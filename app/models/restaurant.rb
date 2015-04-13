@@ -17,7 +17,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def self.top_rated
-  	#@top_rated = Restaurant.
+  	Restaurant.joins(:reviews).group(:restaurant_id).order("AVG('rating')").limit(10)
   end
 
   def self.most_visited
