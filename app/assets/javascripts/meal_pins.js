@@ -1,7 +1,7 @@
 function insertMealsPins(map, data){
   var infowindows = new Array (); // creates an array to hold the info windows for each restaurant
   for (var i = data["meals"].length - 1; i >= 0; i--) {
-    var pins, html, pinLatLng, pinMarkers, button;
+    var pins, html, attendees, pinLatLng, pinMarkers, button;
     pins = data["meals"][i];
 
     if (pins["restaurant"]["attending"]) {
@@ -20,6 +20,16 @@ function insertMealsPins(map, data){
       html += '<a href="' + pins['restaurant']['menu']+ '">Menu</a>';
     }
     html += button;
+    attendees = "<p>Attending:</p>"
+    pins["attendees"].forEach(function(attendee){
+      attendees += "<p>" + attendee + "</p>"
+    })
+
+    if ( pins["attendees"].length === 0 ) {
+      attendees += "No one attending yet!"
+    };
+
+    html += attendees;
     pinLatLng = new google.maps.LatLng(parseFloat(pins['restaurant']['lat']), parseFloat(pins['restaurant']['lng']));
     pinMarkers = new google.maps.Marker({position: pinLatLng, map: map, animation: google.maps.Animation.Drop});
     infowindows[i] = new google.maps.InfoWindow();

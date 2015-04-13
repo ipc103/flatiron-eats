@@ -1,7 +1,7 @@
 class MealsController < ApplicationController
 
   def index
-    @meals = Meal.all
+    @meals = Meal.upcoming
     respond_to do |f|
       f.html
       f.json {
