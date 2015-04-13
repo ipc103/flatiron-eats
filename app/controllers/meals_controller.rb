@@ -1,8 +1,9 @@
 class MealsController < ApplicationController
 
   def index
-    @meals = Meal.upcoming
+    @meals = Meal.all
     respond_to do |f|
+      f.html
       f.json {
         render json: {meals: @meals.map do |meal| 
           {
@@ -17,12 +18,12 @@ class MealsController < ApplicationController
               menu: meal.restaurant.menu, 
               attending: meal.going?(current_user),
               hosting: meal.hosting?(current_user)
-            }
+            },
+            attendees: meal.users.map(&:name)
           }
         end
       }
     }
-      f.html
     end
   end
 
