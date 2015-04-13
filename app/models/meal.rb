@@ -14,4 +14,12 @@ class Meal < ActiveRecord::Base
   def hosting?(user)
     self.host == user
   end
+
+  def self.upcoming
+    self.where("date BETWEEN ? AND ?", Time.now, 7.day.from_now)
+  end
+
+  def self.past
+    self.where("date BETWEEN ? AND ?", 5.day.ago, Time.now)
+  end
 end
