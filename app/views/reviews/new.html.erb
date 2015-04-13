@@ -1,0 +1,7 @@
+<%= form_for @review, url: meal_reviews_path, html: {class: "bv-form", id: "movieForm"} do |f| %>
+	<%= f.label :rating %>
+	<%= f.select :rating, [0, 1, 2, 3, 4, 5] %></br>
+	<%= f.label :comment %>
+	<%= f.text_field :comment %></br>
+	<%= f.submit "Submit your review", :class => "btn btn-default" %>
+<% end %>
