@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
 
 	def index
 		@restaurants = Restaurant.all
+    @top_10 = Restaurant.top_rated
     respond_to do |f|
       f.html
       f.json {

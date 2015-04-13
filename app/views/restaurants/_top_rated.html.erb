@@ -1,0 +1,15 @@
+<div class="right-sidebar col-md-3">
+  <div class="add-on clearfix">
+    <h4>Upcoming Meals</h4>
+      <div class="add-on-wrapper">
+        <% @top_10.each do |restaurant| %>
+          <h5>
+            <%= "#{restaurant.name}"%>
+          </h5>
+          <ul class="articles">
+            <li><%= "#{restaurant.address_line1} Average Rating: #{restaurant.average_rating}"%> </li>
+          </ul>
+        <% end %>
+    </div>
+  </div>
+</div>
