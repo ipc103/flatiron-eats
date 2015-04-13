@@ -16,7 +16,7 @@ class Meal < ActiveRecord::Base
   end
 
   def self.upcoming
-    self.where("date BETWEEN ? AND ?", Time.now, 7.day.from_now)
+    self.where("date BETWEEN ? AND ?", 1.hour.ago, 7.day.from_now)
   end
 
   def self.past

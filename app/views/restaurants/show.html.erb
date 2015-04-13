@@ -10,7 +10,7 @@
 
 <h4>Reviews: </h4>
 <% @restaurant.reviews.each do |f| %>
-<%= "#{f.rating}, #{f.comment}" %></br>
+<%= "#{f.rating} - #{f.comment}" %></br>
 <% end %>
 
 <%= form_tag(new_meal_path, method: :get) %>

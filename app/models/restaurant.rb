@@ -3,4 +3,26 @@ class Restaurant < ActiveRecord::Base
   has_many :restaurant_categories
   has_many :categories, through: :restaurant_categories
   has_many :reviews, through: :meals
+
+  def average_rating
+  	if self.reviews.length > 0
+	  	total = 0
+	  	self.reviews.each do |review|
+	  		total += review.rating
+	  	end
+	  	@average_rating = total/self.reviews.length
+		else
+			@average_rating = 0
+  	end
+  end
+
+  def self.top_rated
+  	#@top_rated = Restaurant.
+  end
+
+  def self.most_visited
+  end
+
+  def self.top_rated_this_week
+  end
 end
