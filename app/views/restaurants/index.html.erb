@@ -3,9 +3,9 @@
     <div class="spacer">
       <div class="row">
         <h4>Search by category:</h4>
-        <%= form_tag(category_search_path) do %>
+        <%= form_tag(category_search_path, remote: true) do %>
           <% @categories.each do |category| %>
-              <%= check_box_tag(category.name, value = "#{category.id}") %>
+              <%= check_box_tag("categories[]", value = "#{category.id}") %>
               <%= label_tag(category.name) %>
               <% end %>
               <%= submit_tag "Search", :class => "btn btn-default" %>
@@ -29,10 +29,8 @@
   </div><!-- container-fluid -->
 </div><!-- main-container -->
 
-<ul>
-	<% @restaurants.each do |restaurant| %>
-		<li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-	<%end%>
-</ul>
+<div id="all_restaurants">
+  <%= render "/restaurants/all_restaurants" %>
+</div>
 
 
