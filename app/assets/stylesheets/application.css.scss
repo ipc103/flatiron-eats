@@ -51,3 +51,57 @@ body {
   border-right: 2px solid #E2E8F0;
 }
 
+#login .circle-buttons-container .circle-button.log-in-circle {
+    border: 15px solid #42A2CF;
+}
+
+#login .circle-buttons-container .circle-button {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: auto;
+}
+
+#login .circle-buttons-container a {
+    color: #444;
+}
+
+a {
+    color: #41A1CE;
+}
+
+#login {
+    text-align: center;
+    text-transform: none;
+    font-family: "NimbusSan-Reg";
+    margin: auto;
+}
+
+#login .circle-buttons-container .circle-button .button-label {
+    font-family: "NimbusSanCon-Bol";
+    font-size: 2.5em;
+    position: relative;
+    top: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "bebasneue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1;
+    color: #414142;
+}
+
+body {
+    font-family: "AdelleSans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 18px;
+    line-height: 1.222;
+    color: #444;
+}
+
+h1{
+  text-align: center;
+}
+
+img.github{
+  width: 30px;
+}
