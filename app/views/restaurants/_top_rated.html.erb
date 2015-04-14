@@ -4,7 +4,7 @@
       <div class="add-on-wrapper">
         <% @top_10.each do |restaurant| %>
           <h5>
-            <%= "#{restaurant.name}"%>
+            <%=link_to "#{restaurant.name}", restaurant_path(restaurant)%>
           </h5>
           <ul class="articles">
             <li><%= "#{restaurant.address_line1} Average Rating: #{restaurant.average_rating}"%> </li>
