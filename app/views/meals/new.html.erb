@@ -1,16 +1,2 @@
-<%= form_for @meal, html: {class: "bv-form", id: "movieForm"} do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %></br>
-
-	<% if @restaurant %>
-		<%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true, selected: @restaurant.id%></br>
-	<% else %>
-		<%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true %></br>
-	<% end %>
-		
-	<%= f.hidden_field :host_id, value: current_user.id %>
-	<%= f.datetime_select :date%>
-	<%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"] %>
-	<%= f.submit "Create a Meal", :class => "btn btn-default" %>
-<% end %>
+<%= render "/meals/form" %>
 
