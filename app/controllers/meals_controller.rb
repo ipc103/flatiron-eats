@@ -58,7 +58,9 @@ class MealsController < ApplicationController
 
   def new_user_meal
     @meal = Meal.find(params[:meal_id])
-    UserMeal.create(user_id: current_user.id, meal_id: params[:meal_id])
+    if @meal.going?(current_user)
+      UserMeal.create(user_id: current_user.id, meal_id: params[:meal_id])
+    end
     respond_to do |f|
       f.html{
         redirect_to meals_path
