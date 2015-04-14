@@ -17,7 +17,7 @@ class Restaurant < ActiveRecord::Base
   end
 
   def self.top_rated
-    Restaurant.joins(:reviews).group("restaurants.id").order("avg(reviews.rating)")
+    Restaurant.joins(:reviews).group("restaurants.id").order("avg(reviews.rating) DESC")
   end
 
   def self.top_ten
