@@ -1,7 +1,9 @@
-# class SearchController < ApplicationController
+class SearchController < ApplicationController
 
-# 	def food_categories
-# 		@restaurants = Restaurant.all.ca
-# 	end
+	def food_categories
+		@restaurants = Restaurant.all
+		binding.pry
 
-# end
+	end
+
+end
