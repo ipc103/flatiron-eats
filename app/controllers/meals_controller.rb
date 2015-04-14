@@ -1,5 +1,5 @@
 class MealsController < ApplicationController
-
+  before_action :load_meal, only: [:show, :edit, :destroy, :update]
   def index
     @meals = Meal.upcoming
     respond_to do |f|
@@ -28,7 +28,6 @@ class MealsController < ApplicationController
   end
 
   def show
-    @meal = Meal.find(params[:id])
     @users = @meal.users
   end
 
@@ -42,6 +41,15 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.create(meal_params)
     redirect_to meals_path
+  end
+
+  def edit
+    
+  end
+
+  def update
+    @meal.update(meal_params)
+    redirect_to meal_path(@meal)
   end
 
   def destroy
@@ -85,6 +93,9 @@ class MealsController < ApplicationController
 
 
   private
+  def load_meal
+    @meal = Meal.find(params[:id])
+  end
   def meal_params
     params.require(:meal).permit(:name, :restaurant_id, :host_id, :email, :date, :meal_type)
   end

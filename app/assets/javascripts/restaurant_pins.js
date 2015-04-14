@@ -14,7 +14,7 @@ function insertRestaurantPins(map, data, infowindow){
     
     html += '<p><a href="/meals/new?restaurant_id=' + pins['id'] + '">Create a New Meal</a></p>';
     pinLatLng = new google.maps.LatLng(parseFloat(pins['lat']), parseFloat(pins['lng']));
-    pinMarkers = new google.maps.Marker({position: pinLatLng, map: map, animation: google.maps.Animation.Drop});
+    pinMarkers = new google.maps.Marker({position: pinLatLng, map: map, animation: google.maps.Animation.DROP});
     infowindows[i] = new google.maps.InfoWindow();
     infowindows[i].setContent(html);
     var prevOpenWindow = false;

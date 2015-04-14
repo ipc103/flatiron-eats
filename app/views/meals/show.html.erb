@@ -1,5 +1,5 @@
 <h2><%= @meal.name %></h2>
-<h4><%= @meal.date %></h4>
+<h4><%= @meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %></h4>
 <h4><%= link_to @meal.restaurant.name, @meal.restaurant %></h4>
 <h4>Attending:</h4>
 <ul>
@@ -7,4 +7,7 @@
     <li><%= link_to user.name, user %></li>
   <% end %>
 </ul>
+<% if @meal.hosting?(current_user) %>
+  <%= link_to "Edit Meal", edit_meal_path %>
+<% end %>
 <%= link_to 'New Review', new_meal_reviews_path(@meal) %>
