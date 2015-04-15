@@ -1,6 +1,6 @@
 <%= form_for @meal, html: {class: "bv-form", id: "movieForm"} do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name, required: true, autofocus: true%></br>
+  <%= f.text_field :name, required: true, autofocus: true, placeholder: "Give Your Meal a Name!!"%></br>
 
   <% if @restaurant %>
     <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true, selected: @restaurant.id%></br>
@@ -9,7 +9,7 @@
   <% end %>
     
   <%= f.hidden_field :host_id, value: current_user.id %>
-  <%= f.text_field :date, value: DateTime.now, id: "datepicker" %>
-  <%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"] %>
+  <%= f.text_field :date, value: DateTime.now, id: "datepicker", required: true, placeholder: "Select Date" %>
+  <%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"], selected: 'Lunch' %>
   <%= f.submit "Submit", :class => "btn btn-default" %>
 <% end %>
