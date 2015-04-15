@@ -40,7 +40,7 @@ class MealsController < ApplicationController
   end
 
   def create
-    params[:meal][:date] = DateTime.strptime(params[:meal][:date], "%m/%d/%Y %H:%M %p")
+    params[:meal][:date] = DateTime.strptime(params[:meal][:date], "%m/%d/%Y %H:%M %p").change(:offset => "-0400")
     @meal = Meal.create(meal_params)
     redirect_to meals_path
   end
