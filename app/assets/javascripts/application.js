@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-readyselector
+// require jquery-ui/datepicker
 //= require bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 //= require leaflet
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .

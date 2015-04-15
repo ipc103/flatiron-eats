@@ -40,6 +40,7 @@ class MealsController < ApplicationController
   end
 
   def create
+    params[:meal][:date] = DateTime.strptime(params[:meal][:date], "%m/%d/%Y %H:%M %p")
     @meal = Meal.create(meal_params)
     redirect_to meals_path
   end
