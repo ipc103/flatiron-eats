@@ -1,6 +1,6 @@
 <%= form_for @meal, html: {class: "bv-form", id: "movieForm"} do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %></br>
+  <%= f.text_field :name, required: true %></br>
 
   <% if @restaurant %>
     <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true, selected: @restaurant.id%></br>
