@@ -12,7 +12,7 @@ function insertMealsPins(map, data){
       var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Join This Meal!" class="btn btn-info join"></div>';
     }
     
-    html = '<h4>'+pins['restaurant']['name']+'</h4>' +'<p>'+pins['restaurant']['address_line1']+'</p>'
+    html = '<h4>'+pins['restaurant']['name']+'</h4>' +'<p>'+Date(pins['date'])+'</p>'+'<p>'+pins['restaurant']['address_line1']+'</p>'
     if ( pins['restaurant']['phone'] ) {
       html += '<p>'+ pins['restaurant']['phone']+'</p>';
     }

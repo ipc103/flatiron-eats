@@ -8,7 +8,8 @@ class MealsController < ApplicationController
         render json: {meals: @meals.map do |meal| 
           {
             id: meal.id, 
-            name: meal.name, 
+            name: meal.name,
+            date: meal.date, 
             restaurant: {
               name: meal.restaurant.name, 
               lat: meal.restaurant.lat, 
