@@ -1,15 +1,57 @@
-<%= form_for @meal, html: {class: "bv-form", id: "movieForm"} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %></br>
+<div class="main-container">
+  <div class="container-fluid">
+    <div class="spacer">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" > <!-- col-sm-12 -->
+          <div class="blog">
+            <div class="blog-header">
+              <h5 class="blog-title">Meal Form!</h5>
+            </div>
+            <div class="blog-body" style="height:400px;">
+              <%= form_for @meal, html: {class: "bv-form", id: "movieForm"} do |f| %>
+                <div class="form-group has-feedback">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <%= f.label :name, class: "control-label" %>
+                      <%= f.text_field :name, required: true, autofocus: true, placeholder: "Give Your Meal a Name!!", :class => "form-control"%></br>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                      <% if @restaurant %>
+                        <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, {include_blank: true, selected: @restaurant.id}, {:class => 'form-control'} %></br>
+                      <% else %>
+                        <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, {include_blank: true}, {:class => 'form-control'} %></br>
+                      <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <%= f.hidden_field :host_id, value: current_user.id %>
+                    <%= f.text_field :date, value: DateTime.now, id: "datepicker", required: true, placeholder: "Select Date" %></br></br>
+                  </div>
+                </div>
+                  
+                <div class="row">
+                  <div class="col-md-8">
+                    <%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"], {selected: 'Lunch'}, {:class=>"form-control"} %></br>
+                  </div>
+                </div>
 
-  <% if @restaurant %>
-    <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true, selected: @restaurant.id%></br>
-  <% else %>
-    <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, include_blank: true %></br>
-  <% end %>
-    
-  <%= f.hidden_field :host_id, value: current_user.id %>
-  <%= f.datetime_select :date%>
-  <%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"] %>
-  <%= f.submit "Submit", :class => "btn btn-default" %>
-<% end %>
+                <div class="row">
+                  <div class="col-md-4">
+                    <%= f.submit "Submit", :class => "btn btn-default" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- row -->
+    </div><!-- spacer -->
+  </div><!-- container-fluid -->
+</div><!-- main-container -->
+
+

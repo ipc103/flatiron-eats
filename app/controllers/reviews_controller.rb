@@ -1,9 +1,5 @@
 class ReviewsController < ApplicationController
-
-
-	def show
-	end
-
+  before_action :load_review, only: [:destroy]
 	def new
 		 @review = Review.new
 	end
@@ -16,7 +12,17 @@ class ReviewsController < ApplicationController
     redirect_to restaurant_path(@review.restaurant)
 	end
 
+  def destroy
+    @review.destroy
+    redirect_to meal_path(Meal.find(params[:meal_id]))
+  end
+
 	private
+
+  def load_review
+    @review = Review.find(params[:id])
+  end
+
   def review_params
     params.require(:review).permit(:rating, :comment, :meal_id)
   end

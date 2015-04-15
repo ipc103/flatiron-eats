@@ -10,4 +10,4 @@
 <% if @meal.hosting?(current_user) %>
   <%= link_to "Edit Meal", edit_meal_path %>
 <% end %>
-<%= link_to 'New Review', new_meal_reviews_path(@meal) %>
+<%= link_to 'New Review', new_meal_review_path(@meal) %>

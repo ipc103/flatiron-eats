@@ -14,6 +14,7 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  *= require_self
+ * require jquery-ui/datepicker
  //= depend_on_asset "layers.png"
  //= depend_on_asset "layers-2x.png"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
@@ -22,6 +23,7 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
 @import "bootstrap";
+@import "bootstrap-datetimepicker";
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;

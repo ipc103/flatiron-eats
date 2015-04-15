@@ -9,8 +9,11 @@
 <% end %> </br>
 
 <h4>Reviews: </h4>
-<% @restaurant.reviews.each do |f| %>
-<%= "#{f.rating} - #{f.comment}" %></br>
+<% @restaurant.reviews.each do |review| %>
+  <%= "#{review.rating} - #{review.comment}" %></br>
+  <% if current_user == review.user %>
+      <%= link_to "Delete Review", "/meals/#{review.meal_id}/reviews/#{review.id}", method: "delete" %>
+  <% end %>
 <% end %>
 
 <%= form_tag(new_meal_path, method: :get) %>

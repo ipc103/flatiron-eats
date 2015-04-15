@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root "meals#index"
 
   resources :meals do
-    resource :reviews
+    resources :reviews
   end
   
   resources :restaurants, :users
