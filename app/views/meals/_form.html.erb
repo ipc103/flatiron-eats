@@ -17,16 +17,33 @@
                     </div>
                   </div>
                 </div>
-                <% if @restaurant %>
-                  <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, {include_blank: true, selected: @restaurant.id}, {:class => 'form-control'} %></br>
-                <% else %>
-                  <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, {include_blank: true}, {:class => 'form-control'} %></br>
-                <% end %>
+                <div class="row">
+                    <div class="col-md-8">
+                      <% if @restaurant %>
+                        <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, {include_blank: true, selected: @restaurant.id}, {:class => 'form-control'} %></br>
+                      <% else %>
+                        <%= f.collection_select :restaurant_id, Restaurant.order(:name),:id, :name, {include_blank: true}, {:class => 'form-control'} %></br>
+                      <% end %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <%= f.hidden_field :host_id, value: current_user.id %>
+                    <%= f.text_field :date, value: DateTime.now, id: "datepicker", required: true, placeholder: "Select Date" %></br></br>
+                  </div>
+                </div>
                   
-                <%= f.hidden_field :host_id, value: current_user.id %>
-                <%= f.text_field :date, value: DateTime.now, id: "datepicker", required: true, placeholder: "Select Date" %></br></br>
-                <%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"], {selected: 'Lunch'}, {:class=>"form-control"} %></br>
-                <%= f.submit "Submit", :class => "btn btn-default" %>
+                <div class="row">
+                  <div class="col-md-8">
+                    <%= f.select :meal_type, ['Breakfast', 'Lunch', "Dinner"], {selected: 'Lunch'}, {:class=>"form-control"} %></br>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <%= f.submit "Submit", :class => "btn btn-default" %>
+                  </div>
+                </div>
               <% end %>
             </div>
           </div>
