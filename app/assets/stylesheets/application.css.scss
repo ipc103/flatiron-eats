@@ -107,3 +107,12 @@ h1{
 img.github{
   width: 30px;
 }
+
+.restaurant-bg {
+  background-image: url('flatiron-building.jpg');
+  background-size: cover;
+  opacity: 0.5;
+  background-position: bottom center;
+  height: 280px;
+  position: relative;
+}
