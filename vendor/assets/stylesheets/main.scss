@@ -1,4 +1,4 @@
-/*  Variables  */
+ 	/*  Variables  */
 $primary-color: #333;
 $primary-font-color: #eacb20;
 
@@ -3021,14 +3021,21 @@ ul.quick-actions {
 		left: 10px;
 		right: 10px;
 	}
+
+	.place-details{
+		top: 10px;
+	}
 	h4.user-name{
 		color: black;
 		text-align: center;
 		margin: 0;
 		padding: 0;
+		a{
+			color: black;
+		}
 	}
 	h5.description{
-		color: $white;
+		color: black;
 		margin: 10px 0 0 0;
 		text-align: center;
 		font-weight: 100;
