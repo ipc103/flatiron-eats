@@ -1,8 +1,10 @@
+debugger;
 $('div#all_restaurants').html('<%= j(render partial: "/restaurants/all_restaurants", locals: {restaurants: @restaurants})%>')
 
 var data = {'restaurants': <%= (@restaurants.collect(&:attributes).to_json.html_safe) %>}
 
 insertMap(40.705329, -74.013970, data, insertRestaurantPins);
+
 
 
 

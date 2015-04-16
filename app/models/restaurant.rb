@@ -4,6 +4,8 @@ class Restaurant < ActiveRecord::Base
   has_many :categories, through: :restaurant_categories
   has_many :reviews, through: :meals
 
+  self.per_page = 10 #will_paginate option
+
   def average_rating
   	if self.reviews.length > 0
 	  	total = 0
@@ -29,4 +31,5 @@ class Restaurant < ActiveRecord::Base
 
   def self.top_rated_this_week
   end
+
 end
