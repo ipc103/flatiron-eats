@@ -3390,12 +3390,12 @@ ul.plan-details {
 		}
 		.name {
 			color: lighten($black, 40%);
-			font-size: 13px;
+			font-size: 20px;
 			font-weight: bold;
 		}
 		.date-time {
 			color: $primary-color;
-			font-size: 11px;
+			font-size: 15px;
 			font-weight: 400;
 			.fa{
 				font-size: 14px;
@@ -3435,19 +3435,19 @@ ul.plan-details {
 				border-right: 12px solid darken($white, 3%);
 			}
 		}
-		&.out {
-			.message {
-				margin-right: 60px;
-				background: lighten($info, 37%);
-				text-align: right;
-				.arrow {
-					display: block;
-					position: absolute;
-					top: 0px;
-					right: -12px;
-					border-bottom: 12px solid transparent;
-					border-left: 12px solid lighten($info, 37%);
-				}
+		&.out .message {
+			text-align: left;
+			margin-left: 0px;
+			background: darken($white, 3%);
+			.arrow {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: -12px;
+				width: 0;
+				height: 0;
+				border-bottom: 12px solid transparent;
+				border-right: 12px solid darken($white, 3%);
 			}
 		}
 		.message .body {

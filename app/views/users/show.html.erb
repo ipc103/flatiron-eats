@@ -33,7 +33,15 @@
                   <div class= "blog-body">
                       <ul class="chats">
                           <% @meals.each do |meal| %>
-                          <li class="in"><%= link_to meal.name, meal %></li>
+                          <li class="in">
+                          <img class="avatar" alt src="<%= meal.host.image %>"
+                          <div class="message">
+                            <%= link_to meal.name, meal, class: "name" %>
+                              <span class="date-time">
+                                  - <%= meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
+                              </span>
+                               </div>
+                          </li>
                           <% unless meal.users.include?(current_user) %>
                           <%= form_tag(create_user_meal_path, method: :post) %>
                           <%= hidden_field_tag 'meal_id', meal.id %>
@@ -53,7 +61,15 @@
                             <div class= "blog-body">
                               <ul class="chats">
                                   <% @events.each do |event| %>
-                                  <li class="in"><%= link_to event.name, event %></li>
+                                  <li class="out">
+                                  <div class="message">
+                                      <%= link_to event.name, event, class: "name"%>
+                                      <span class="date-time">
+                                         - <%= event.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
+                                      </span>
+                                  </div>
+
+                                  </li>
                                   <% unless event.users.include?(current_user) || event.host == current_user%>
                                   <%= form_tag(create_user_meal_path, method: :post) %>
                                   <%= hidden_field_tag 'meal_id', event.id %>
