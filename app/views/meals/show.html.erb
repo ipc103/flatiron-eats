@@ -1,13 +1,47 @@
-<h2><%= @meal.name %></h2>
-<h4><%= @meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %></h4>
-<h4><%= link_to @meal.restaurant.name, @meal.restaurant %></h4>
-<h4>Attending:</h4>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to user.name, user %></li>
-  <% end %>
-</ul>
-<% if @meal.hosting?(current_user) %>
-  <%= link_to "Edit Meal", edit_meal_path %>
-<% end %>
-<%= link_to 'New Review', new_meal_review_path(@meal) %>
+<div class="main-container" style="margin: auto;">
+  <div class="container-fluid">
+    <div class="spacer">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12"> 
+        	<div class="current-profile">
+            <div class="user-bg">
+            </div>
+            <div class="user-details place-details">
+              <h1 class="user-name"><%= @meal.name %></h1>
+              <h5 class="description">
+              	<h4><%= @meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %></h4>
+								<h4 class="user-name"><%= link_to @meal.restaurant.name, @meal.restaurant %></h4>
+								<% if @meal.hosting?(current_user) %>
+								  <%= link_to "Edit Meal", edit_meal_path %>
+								<% end %>
+								<%= link_to 'New Review', new_meal_review_path(@meal) %>
+	            </h5>
+            </div><!-- user-details -->
+            </br>
+            <div id="attendees">
+              <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12 col-sm-offset-3" >
+                <div class="blog blog-info" >
+                  <div class="blog-header">
+                    <h5 class="blog-title">Attending:</h5>
+                  </div>
+                  <div class= "blog-body">
+                    <ul class="chats">
+                      <% @users.each do |user| %>
+	                      <li class="in">
+                          <img class="avatar" alt src="<%= user.image %>">
+                          <div class="message">
+                            <%= link_to user.name, user, class: "name" %>
+                          </div>
+	                      </li>
+                      <% end %>
+                    </ul>
+                  </div> <!-- closes blog body -->
+                </div> <!-- closes blog blog info-->
+              </div> <!-- closes col-lg-6 col-md-6 col-sm-12 col-xs-12-->
+            </div> <!-- row -->
+          </div> <!-- current-profile -->
+				</div><!-- col-md-12 -->
+			</div><!-- row -->
+		</div><!-- spacer -->
+	</div><!-- container-fluid -->
+</div><!-- main-container -->
