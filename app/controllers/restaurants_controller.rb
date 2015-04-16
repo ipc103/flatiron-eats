@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
 
 	def index
 		@restaurants = Restaurant.all
-    @categories = Category.all
+    @categories = Category.order(:name)
     @top_10 = Restaurant.top_ten
     respond_to do |f|
       f.html
