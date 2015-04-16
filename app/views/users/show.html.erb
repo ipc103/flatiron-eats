@@ -23,36 +23,49 @@
                 </div>
               </div>
             </div>
-
-                <h3>Attending:</h3>
-                <ul>
-                <% @meals.each do |meal| %>
-                  <li><%= link_to meal.name, meal %></li>
-                  <% unless meal.users.include?(current_user) %>
-                    <%= form_tag(create_user_meal_path, method: :post) %>
-                    <%= hidden_field_tag 'meal_id', meal.id %>
-                    <%= submit_tag "Join This Meal!" %>
-                  <% end %>
-                <% end %>
-                </ul>
-
-                <h3>Hosting:</h3>
-                <ul>
-                <% @events.each do |event| %>
-                  <li><%= link_to event.name, event %></li>
-                  <% unless event.users.include?(current_user) || event.host == current_user%>
-                    <%= form_tag(create_user_meal_path, method: :post) %>
-                    <%= hidden_field_tag 'meal_id', event.id %>
-                    <%= submit_tag "Join This Meal!" %>
-                  <% end %>
-                <% end %>
-                </ul>
-          
-
-            
-          </div>
-        </div>
-      </div>
+          </br>
+            <div class= "row">
+              <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="blog blog-info">
+                  <div class="blog-header">
+                      <h5 class="blog-title">Attending:</h5>
+                  </div>
+                  <div class= "blog-body">
+                      <ul class="chats">
+                          <% @meals.each do |meal| %>
+                          <li class="in"><%= link_to meal.name, meal %></li>
+                          <% unless meal.users.include?(current_user) %>
+                          <%= form_tag(create_user_meal_path, method: :post) %>
+                          <%= hidden_field_tag 'meal_id', meal.id %>
+                          <%= submit_tag "Join This Meal!" %>
+                          <% end %>
+                          <% end %>
+                       </ul>
+                  </div> <!-- closes blog body -->
+                    
+                    </div> <!-- closes blog blog info-->
+                  </div> <!-- closes column-->
+                    <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="blog blog-info">
+                           <div class="blog-header">
+                               <h5 class="blog-title">Hosting:</h5>
+                            </div>
+                            <div class= "blog-body">
+                              <ul class="chats">
+                                  <% @events.each do |event| %>
+                                  <li class="in"><%= link_to event.name, event %></li>
+                                  <% unless event.users.include?(current_user) || event.host == current_user%>
+                                  <%= form_tag(create_user_meal_path, method: :post) %>
+                                  <%= hidden_field_tag 'meal_id', event.id %>
+                                  <%= submit_tag "Join This Meal!" %>
+                                  <% end %>
+                                  <% end %>
+                              </ul>
+                          </div> <!-- closes body-->
+                        </div> <!-- closes blog blog info-->
+                      </div> <!-- closes column-->
+                </div> <!-- closes row-->
+        </div>  <!-- closes column line 5-->      
+      </div> <!-- closes row line 4-->
     </div>
-  </div>        
-</div>
+  </div>
