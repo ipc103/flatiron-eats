@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="spacer">
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" > <!-- col-sm-12 -->
+        <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12" > <!-- col-sm-12 -->
           <div class="blog">
             <div class="blog-header">
               <h5 class="blog-title">Leave a Review!</h5>
@@ -11,7 +11,7 @@
               <%= form_for @review, url: meal_reviews_path, html: {class: "bv-form", id: "movieForm"} do |f| %>
                 
                 <div class="row">
-                  <div class="col-md-1">
+                  <div class="col-md-3">
                   <%= f.label :rating %>
                     <%= f.select :rating, [0,1,2,3,4,5], {selected: 'Lunch'}, {:class=>"form-control"} %>
                   </div>
