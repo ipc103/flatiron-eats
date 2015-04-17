@@ -1,4 +1,3 @@
-
 $(function() {
   var dateToday = new Date();
   $( "#datepicker" ).datetimepicker({
