@@ -3,7 +3,11 @@ $(function() {
   $( "#datepicker" ).datetimepicker({
     // format: 'MM-DD-YYYY HH:MM',
     minDate: dateToday,
-    sideBySide: true
+    sideBySide: true,
     // dateFormat: "yyyy-mm-dd"
+    widgetPositioning: {
+      horizontal: 'auto',
+      vertical: 'bottom'
+    }
   });
 });
