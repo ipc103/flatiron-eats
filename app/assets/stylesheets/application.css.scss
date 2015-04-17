@@ -64,13 +64,35 @@ body {
     margin: auto;
 }
 
-#login .circle-buttons-container a {
-    color: #444;
+#login .circle-buttons-container .circle-button:hover {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: auto;
+    background-color: #42A2CF;
 }
 
-a {
-    color: #41A1CE;
+#login .circle-buttons-container a {
+    color: #444;
+    // color: #41A1CE;
+    text-decoration: none;
+
 }
+
+
+#login .circle-buttons-container a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+#login .circle-buttons-container a h2 {
+    font-family: "bebasneue";
+    
+}
+
+
+
+
 
 #login {
     text-align: center;
@@ -78,6 +100,7 @@ a {
     font-family: "NimbusSan-Reg";
     margin: auto;
 }
+
 
 #login .circle-buttons-container .circle-button .button-label {
     font-family: "NimbusSanCon-Bol";
