@@ -1,4 +1,4 @@
-function insertMealsPins(map, data){
+  function insertMealsPins(map, data){
   var infowindows = new Array (); // creates an array to hold the info windows for each restaurant
   for (var i = data["meals"].length - 1; i >= 0; i--) {
     var pins, html, attendees, pinLatLng, pinMarkers, button;
@@ -12,7 +12,9 @@ function insertMealsPins(map, data){
       var button = '<div id="meal-pin" data-meal-id='+ pins['id']+'><input type="submit" name="commit" value="Join This Meal!" class="btn btn-info join"></div>';
     }
     
-    html = '<h4>'+pins['restaurant']['name']+'</h4>' +'<p>'+Date(pins['date'])+'</p>'+'<p>'+pins['restaurant']['address_line1']+'</p>'
+    var date = new Date(pins['date']).toString();
+
+    html = '<h4>'+pins['restaurant']['name']+'</h4>' +'<p>'+ date +'</p>'+'<p>'+pins['restaurant']['address_line1']+'</p>'
     if ( pins['restaurant']['phone'] ) {
       html += '<p>'+ pins['restaurant']['phone']+'</p>';
     }
