@@ -83,13 +83,14 @@ body {
 #login .circle-buttons-container a:hover {
     color: white;
     text-decoration: none;
+    transition: .01s;
 }
 
-#login .circle-buttons-container a h2 {
-    font-family: "bebasneue";
-    
-}
 
+
+#login-button-header {
+  font-family: "bebasneue";
+}
 
 
 
@@ -103,10 +104,17 @@ body {
 
 
 #login .circle-buttons-container .circle-button .button-label {
-    font-family: "NimbusSanCon-Bol";
+    font-family: 'Neuzeit';
     font-size: 2.5em;
     position: relative;
     top: 16px;
+    font-weight: bold;
+}
+
+#login .circle-buttons-container a h2 {
+    font-weight: bold;
+    font-size: 2.5 em;
+    
 }
 
 // h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
