@@ -26,6 +26,9 @@
                   </div>
                   <div class= "blog-body">
                     <ul class="chats">
+                      <% if @users.empty? %>
+                        <li>No one attending yet - be the first!</li>
+                      <% end %>
                       <% @users.each do |user| %>
 	                      <li class="in">
                           <img class="avatar" alt src="<%= user.image %>">
@@ -34,6 +37,7 @@
                           </div>
 	                      </li>
                       <% end %>
+                      <%= render partial: '/shared/meal_buttons', locals: {meal: @meal}%>
                     </ul>
                   </div> <!-- closes blog body -->
                 </div> <!-- closes blog blog info-->
