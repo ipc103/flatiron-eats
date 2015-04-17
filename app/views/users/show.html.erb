@@ -19,6 +19,9 @@
                   </div>
                   <div class= "blog-body">
                       <ul class="chats">
+                        <% if @meals.empty? %>
+                          <li>Not Attending Any Meals!</li>
+                        <% end %>
                           <% @meals.each do |meal| %>
                           <li class="in">
                           <img class="avatar" alt src="<%= meal.host.image %>">
@@ -46,6 +49,9 @@
                   </div>
                   <div class= "blog-body">
                     <ul class="chats">
+                      <% if @events.empty? %>
+                          <li>Not Hosting Any Meals!</li>
+                      <% end %>
                         <% @events.each do |event| %>
                           <li class="out">
                           <div class="message">
