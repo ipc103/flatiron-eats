@@ -64,13 +64,36 @@ body {
     margin: auto;
 }
 
-#login .circle-buttons-container a {
-    color: #444;
+#login .circle-buttons-container .circle-button:hover {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin: auto;
+    background-color: #42A2CF;
 }
 
-a {
-    color: #41A1CE;
+#login .circle-buttons-container a {
+    color: #444;
+    // color: #41A1CE;
+    text-decoration: none;
+
 }
+
+
+#login .circle-buttons-container a:hover {
+    color: white;
+    text-decoration: none;
+    transition: .01s;
+}
+
+
+
+#login-button-header {
+  font-family: "bebasneue";
+}
+
+
+
 
 #login {
     text-align: center;
@@ -79,11 +102,19 @@ a {
     margin: auto;
 }
 
+
 #login .circle-buttons-container .circle-button .button-label {
-    font-family: "NimbusSanCon-Bol";
+    font-family: 'Neuzeit';
     font-size: 2.5em;
     position: relative;
     top: 16px;
+    font-weight: bold;
+}
+
+#login .circle-buttons-container a h2 {
+    font-weight: bold;
+    font-size: 2.5 em;
+    
 }
 
 // h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
