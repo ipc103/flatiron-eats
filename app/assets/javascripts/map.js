@@ -16,8 +16,8 @@ function insertMap(lat, lng, data, funk){
   var mapCanvas = document.getElementById('map-canvas');
   var mapOptions = {
     center: new google.maps.LatLng(lat, lng),
-    zoom: 16,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    zoom: 17,
+    mapTypeId: google.maps.MapTypeId.SATELLITE
   };
   var map = new google.maps.Map(mapCanvas, mapOptions);
   var img = "assets/logo.png";
