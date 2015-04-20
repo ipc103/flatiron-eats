@@ -2,5 +2,5 @@ loadRightSidebar();
 // var map = $("div#map-canvas");
 
 $.getJSON('/meals', function(data){
-    insertMealsMap(40.705329, -74.013970, data);
+  insertMealsPins(map, data);
   });

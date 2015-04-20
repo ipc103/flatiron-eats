@@ -14,8 +14,8 @@ $(function(){
         this.removeClass( "btn-info join" );
         this.addClass( "btn-danger remove" );
         this.attr("value", "Remove this Meal!");
-        debugger;
         loadRightSidebar();
+        insertMealsPins(map, response)
       }
     });
   }));

@@ -22,16 +22,16 @@
       html += '<a href="' + pins['restaurant']['menu']+ '">Menu</a>';
     }
     html += button;
-    attendees = "<p>Attending:</p>"
-    pins["attendees"].forEach(function(attendee){
-      attendees += "<p>" + attendee + "</p>"
-    })
+    // attendees = "<p>Attending:</p>"
+    // pins["attendees"].forEach(function(attendee){
+    //   attendees += "<p>" + attendee + "</p>"
+    // })
 
-    if ( pins["attendees"].length === 0 ) {
-      attendees += "No one attending yet!"
-    };
+    // if ( pins["attendees"].length === 0 ) {
+    //   attendees += "No one attending yet!"
+    // };
 
-    html += attendees;
+    // html += attendees;
     pinLatLng = new google.maps.LatLng(parseFloat(pins['restaurant']['lat']), parseFloat(pins['restaurant']['lng']));
     pinMarkers = new google.maps.Marker({position: pinLatLng, map: map, animation: google.maps.Animation.Drop});
     infowindows[i] = new google.maps.InfoWindow();
