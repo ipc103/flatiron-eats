@@ -24,6 +24,7 @@
  */
 @import "bootstrap";
 @import "bootstrap-datetimepicker";
+@import "font-awesome";
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;
@@ -40,8 +41,13 @@ body {
   margin: 5px 0;
 }
 
+@font-face {
+  font-family: 'BebasNeue';
+  src: font-url('bebas/BebasNeue-regular.ttf') format('truetype');
+}
+
 #map-canvas {
-  width: 700px;
+  width: 100%;
   height: 600px;
 }
 
@@ -83,28 +89,33 @@ body {
 #login .circle-buttons-container a:hover {
     color: white;
     text-decoration: none;
-    transition: .01s;
+    transition: none;
 }
 
 
 
 #login-button-header {
-  font-family: "bebasneue";
+  font-family: "BebasNeue";
+  font-weight: bold;
 }
 
-
+h1.brand-name {
+  font-family: "BebasNeue";
+  font-weight: bold;
+  font-size: 5em;
+}
 
 
 #login {
     text-align: center;
     text-transform: none;
-    font-family: "NimbusSan-Reg";
+    font-family: "BebasNeue";
     margin: auto;
 }
 
 
 #login .circle-buttons-container .circle-button .button-label {
-    font-family: 'Neuzeit';
+    font-family: 'BebasNeue';
     font-size: 2.5em;
     position: relative;
     top: 16px;
@@ -118,7 +129,7 @@ body {
 }
 
 // h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-//     font-family: "bebasneue",Helvetica,Arial,sans-serif;
+//     font-family: "BebasNeue", Helvetica,Arial,sans-serif;
 //     font-weight: 400;
 //     line-height: 1;
 //     color: #414142;
@@ -135,9 +146,6 @@ h1{
   text-align: center;
 }
 
-img.github{
-  width: 30px;
-}
 
 .restaurant-bg {
   background-image: url('flatiron-building.jpg');
