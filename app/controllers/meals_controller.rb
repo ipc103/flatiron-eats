@@ -60,9 +60,6 @@ class MealsController < ApplicationController
       f.html{
         redirect_to meals_path
       }
-      f.js{
-        render 'restaurants/right_sidebar'
-      }
     end
   end
 
