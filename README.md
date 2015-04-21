@@ -2,38 +2,11 @@
 
 ## Description
 
-Add a short description of your app.
-
-## Screenshots
-
-Add some spiffy screenshots of your app here.
-
-## Background
-
-Why did you want to make this app? What was your development process
-like?
-
-## Features
-
-Bullet point some of the key features of your app here.
-
-## Usage
-
-How do users use your app?
-
-## Development/Contribution
-
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
-
-## Future
-
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
+Flatiron Eats is an app for Flatiron School students an employees to post where they're going for lunch, schedule lunches with others, rate their favorite restaurants, and more!
 
 ## Author
 
-Link to your blog, twitter, etc!
+Built by Deniz Unat, Lara Shkordoff, and Ian Candy while attending Flatiron School's Web Development Immersive.
 
 ## License
 
