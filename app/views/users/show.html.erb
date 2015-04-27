@@ -15,14 +15,42 @@
               <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="blog blog-info">
                   <div class="blog-header">
-                      <h5 class="blog-title">Attending:</h5>
+                    <h5 class="blog-title">Attending:</h5>
                   </div>
                   <div class= "blog-body">
                       <ul class="chats">
-                        <% if @meals.empty? %>
-                          <li>Not Attending Any Meals!</li>
+                        <% if @future_meals.empty? %>
+                          <li>Not Attending Any Upcoming Meals!</li>
                         <% end %>
-                          <% @meals.each do |meal| %>
+                          <% @future_meals.each do |meal| %>
+                          <li class="in">
+                          <img class="avatar" alt src="<%= meal.host.image %>">
+                          <div class="message">
+                            <%= link_to meal.name, meal, class: "name" %>
+                              <span class="date-time">
+                                  - <%= meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
+                              </span>
+                               </div>
+                          </li>
+                          <% unless meal.users.include?(current_user) %>
+                            <%= form_tag(create_user_meal_path, method: :post) %>
+                            <%= hidden_field_tag 'meal_id', meal.id %>
+                            <%= submit_tag "Join This Meal!" %>
+                          <% end %>
+                        <% end %>
+                       </ul>
+                    </div> <!-- closes blog body -->
+                </div> <!-- closes blog blog info-->
+                <div class="blog blog-info">
+                  <div class="blog-header">
+                      <h5 class="blog-title">Already Attended:</h5>
+                  </div>
+                  <div class= "blog-body">
+                      <ul class="chats">
+                        <% if @past_meals.empty? %>
+                          <li>Has Never Attended Any Meals!</li>
+                        <% end %>
+                          <% @past_meals.each do |meal| %>
                           <li class="in">
                           <img class="avatar" alt src="<%= meal.host.image %>">
                           <div class="message">

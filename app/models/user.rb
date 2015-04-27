@@ -20,4 +20,27 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
+
+  # The two methods below are nearly identical and can probably be refactored into
+  # one pretty nicely. Especially if something similar will be done a third time.
+  # If you do this ^ don't forget to update UsersController as well :)
+  def get_sorted_meals
+    meals = self.meals
+    sorted_result = {
+      future: meals.where("date > ?", Time.now),
+      past: meals.where("date < ?", Time.now)
+    }
+
+    return sorted_result
+  end
+
+  def get_sorted_events
+    events = self.events
+    sorted_result = {
+      future: events.where("date > ?", Time.now),
+      past: events.where("date < ?", Time.now)
+    }
+
+    return sorted_result
+  end
 end
