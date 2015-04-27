@@ -11,8 +11,9 @@ class UsersController < ApplicationController
     @past_meals = @meals[:past]
     @future_meals = @meals[:future]
 
-    @events = @user.get_sorted_events
-    @future_events = @events[:past]
-    @past_events = @events[:future]
+    @events = @user.events
+    #@events = @user.get_sorted_events
+    #@future_events = @events[:past]
+    #@past_events = @events[:future]
   end
 end
