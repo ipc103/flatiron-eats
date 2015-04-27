@@ -1,133 +1,133 @@
 <div class="main-container" style="margin: auto;">
   <div class="container-fluid">
-    <div class="spacer">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12"> 
-          <div class="current-profile">
-            <div class="user-bg"></div>
-            <%= image_tag(@user.image, :class => "user-pic") %>
-            <div class="user-details">
-              <h4 class="user-name"><%= @user.name %></h4>
-              <h5 class="description"></h5>
-            </div>
-          </br>
-            <div class= "row">
-              <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="blog blog-info">
-                  <div class="blog-header">
-                    <h5 class="blog-title">Attending:</h5>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="current-profile">
+          <div class="user-bg"></div>
+          <%= image_tag(@user.image, :class => "user-pic") %>
+          <div class="user-details">
+            <h4 class="user-name"><%= @user.name %></h4>
+            <h5 class="description"></h5>
+          </div>
+        </div>
+        </br>
+        <div class= "row">
+          <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="blog blog-info">
+              <div class="blog-header">
+                <h5 class="blog-title">Attending:</h5>
+              </div>
+              <div class= "blog-body">
+                <ul class="chats">
+                  <% if @future_meals.empty? %>
+                    <li>Not Attending Any Upcoming Meals!</li>
+                <% end %>
+                  <% @future_meals.each do |meal| %>
+                    <li class="in">
+                  <img class="avatar" alt src="<%= meal.host.image %>">
+                  <div class="message">
+                    <%= link_to meal.name, meal, class: "name" %>
+                    <span class="date-time">
+                      - <%= meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
+                  </span>
                   </div>
-                  <div class= "blog-body">
-                      <ul class="chats">
-                        <% if @future_meals.empty? %>
-                          <li>Not Attending Any Upcoming Meals!</li>
-                        <% end %>
-                          <% @future_meals.each do |meal| %>
-                          <li class="in">
-                          <img class="avatar" alt src="<%= meal.host.image %>">
-                          <div class="message">
-                            <%= link_to meal.name, meal, class: "name" %>
-                              <span class="date-time">
-                                  - <%= meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
-                              </span>
-                               </div>
-                          </li>
-                          <% unless meal.users.include?(current_user) %>
-                            <%= form_tag(create_user_meal_path, method: :post) %>
-                            <%= hidden_field_tag 'meal_id', meal.id %>
-                            <%= submit_tag "Join This Meal!" %>
-                          <% end %>
-                        <% end %>
-                       </ul>
-                    </div> <!-- closes blog body -->
-                </div> <!-- closes blog blog info-->
-                <div class="blog blog-info">
-                  <div class="blog-header">
-                      <h5 class="blog-title">Already Attended:</h5>
+                  </li>
+                  <% unless meal.users.include?(current_user) %>
+                    <%= form_tag(create_user_meal_path, method: :post) %>
+                  <%= hidden_field_tag 'meal_id', meal.id %>
+                  <%= submit_tag "Join This Meal!" %>
+                <% end %>
+                <% end %>
+                </ul>
+              </div> <!-- closes blog body -->
+            </div> <!-- closes blog blog info-->
+            <div class="blog blog-info">
+              <div class="blog-header">
+                <h5 class="blog-title">Already Attended:</h5>
+              </div>
+              <div class= "blog-body">
+                <ul class="chats">
+                  <% if @past_meals.empty? %>
+                    <li>Has Never Attended Any Meals!</li>
+                <% end %>
+                  <% @past_meals.each do |meal| %>
+                    <li class="in">
+                  <img class="avatar" alt src="<%= meal.host.image %>">
+                  <div class="message">
+                    <%= link_to meal.name, meal, class: "name" %>
+                    <span class="date-time">
+                      - <%= meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
+                  </span>
                   </div>
-                  <div class= "blog-body">
-                      <ul class="chats">
-                        <% if @past_meals.empty? %>
-                          <li>Has Never Attended Any Meals!</li>
-                        <% end %>
-                          <% @past_meals.each do |meal| %>
-                          <li class="in">
-                          <img class="avatar" alt src="<%= meal.host.image %>">
-                          <div class="message">
-                            <%= link_to meal.name, meal, class: "name" %>
-                              <span class="date-time">
-                                  - <%= meal.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
-                              </span>
-                               </div>
-                          </li>
-                          <% unless meal.users.include?(current_user) %>
-                            <%= form_tag(create_user_meal_path, method: :post) %>
-                            <%= hidden_field_tag 'meal_id', meal.id %>
-                            <%= submit_tag "Join This Meal!" %>
-                          <% end %>
-                        <% end %>
-                       </ul>
-                    </div> <!-- closes blog body -->
-                </div> <!-- closes blog blog info-->
-              </div> <!-- closes column-->
-              <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="blog blog-info">
-                  <div class="blog-header">
-                    <h5 class="blog-title">Hosting:</h5>
+                  </li>
+                  <% unless meal.users.include?(current_user) %>
+                    <%= form_tag(create_user_meal_path, method: :post) %>
+                  <%= hidden_field_tag 'meal_id', meal.id %>
+                  <%= submit_tag "Join This Meal!" %>
+                <% end %>
+                <% end %>
+                </ul>
+              </div> <!-- closes blog body -->
+            </div> <!-- closes blog blog info-->
+          </div> <!-- closes column-->
+          <div class= "col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="blog blog-info">
+              <div class="blog-header">
+                <h5 class="blog-title">Hosting:</h5>
+              </div>
+              <div class= "blog-body">
+                <ul class="chats">
+                  <% if @future_events.empty? %>
+                    <li>Not Hosting Any Upcoming Meals!</li>
+                <% end %>
+                  <% @future_events.each do |event| %>
+                    <li class="out">
+                  <div class="message">
+                    <%= link_to event.name, event, class: "name"%>
+                    <span class="date-time">
+                      - <%= event.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
+                  </span>
                   </div>
-                  <div class= "blog-body">
-                    <ul class="chats">
-                      <% if @future_events.empty? %>
-                          <li>Not Hosting Any Upcoming Meals!</li>
-                      <% end %>
-                        <% @future_events.each do |event| %>
-                          <li class="out">
-                          <div class="message">
-                            <%= link_to event.name, event, class: "name"%>
-                            <span class="date-time">
-                               - <%= event.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
-                            </span>
-                          </div>
-                          </li>
-                          <% unless event.users.include?(current_user) || event.host == current_user%>
-                            <%= form_tag(create_user_meal_path, method: :post) %>
-                            <%= hidden_field_tag 'meal_id', event.id %>
-                            <%= submit_tag "Join This Meal!" %>
-                          <% end %>
-                        <% end %>
-                    </ul>
-                  </div> <!-- closes body-->
-                </div> <!-- closes blog blog info-->
-                <div class="blog blog-info">
-                  <div class="blog-header">
-                    <h5 class="blog-title">Already Hosted:</h5>
+                  </li>
+                  <% unless event.users.include?(current_user) || event.host == current_user%>
+                    <%= form_tag(create_user_meal_path, method: :post) %>
+                  <%= hidden_field_tag 'meal_id', event.id %>
+                  <%= submit_tag "Join This Meal!" %>
+                <% end %>
+                <% end %>
+                </ul>
+              </div> <!-- closes body-->
+            </div> <!-- closes blog blog info-->
+            <div class="blog blog-info">
+              <div class="blog-header">
+                <h5 class="blog-title">Already Hosted:</h5>
+              </div>
+              <div class= "blog-body">
+                <ul class="chats">
+                  <% if @past_events.empty? %>
+                    <li>Has Never Hosted Any Meals!</li>
+                <% end %>
+                  <% @past_events.each do |event| %>
+                    <li class="out">
+                  <div class="message">
+                    <%= link_to event.name, event, class: "name"%>
+                    <span class="date-time">
+                      - <%= event.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
+                  </span>
                   </div>
-                  <div class= "blog-body">
-                    <ul class="chats">
-                      <% if @past_events.empty? %>
-                          <li>Has Never Hosted Any Meals!</li>
-                      <% end %>
-                        <% @past_events.each do |event| %>
-                          <li class="out">
-                          <div class="message">
-                            <%= link_to event.name, event, class: "name"%>
-                            <span class="date-time">
-                               - <%= event.date.strftime("%A, %B %d, %Y at %l:%M %p") %>
-                            </span>
-                          </div>
-                          </li>
-                          <% unless event.users.include?(current_user) || event.host == current_user%>
-                            <%= form_tag(create_user_meal_path, method: :post) %>
-                            <%= hidden_field_tag 'meal_id', event.id %>
-                            <%= submit_tag "Join This Meal!" %>
-                          <% end %>
-                        <% end %>
-                    </ul>
-                  </div> <!-- closes body-->
-                </div> <!-- closes blog blog info-->
-              </div> <!-- closes column-->
-          </div> <!-- closes row line 15-->
-        </div>  <!-- closes column line 5-->      
-      </div> <!-- closes row line 4-->
-    </div>
+                  </li>
+                  <% unless event.users.include?(current_user) || event.host == current_user%>
+                    <%= form_tag(create_user_meal_path, method: :post) %>
+                  <%= hidden_field_tag 'meal_id', event.id %>
+                  <%= submit_tag "Join This Meal!" %>
+                <% end %>
+                <% end %>
+                </ul>
+              </div> <!-- closes body-->
+            </div> <!-- closes blog blog info-->
+          </div> <!-- closes column-->
+        </div> <!-- closes row line 15-->
+      </div>  <!-- closes column line 5-->
+    </div> <!-- closes row line 4-->
+  </div>
 </div>
